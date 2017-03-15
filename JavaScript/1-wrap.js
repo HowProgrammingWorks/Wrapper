@@ -1,7 +1,8 @@
 'use strict';
 
 function cloneInterface(anInterface) {
-  let key, fn, clone = {};
+  const clone = {};
+  let key, fn;
   for (key in anInterface) {
     fn = anInterface[key];
     clone[key] = wrapFunction(fn);
@@ -19,11 +20,11 @@ function wrapFunction(fn) {
   };
 }
 
-let interfaceName = {
-  methodName: function(par1, par2) {
+const interfaceName = {
+  methodName(par1, par2) {
     console.dir({ method: { par1, par2 } });
   }
 };
 
-let cloned = cloneInterface(interfaceName);
+const cloned = cloneInterface(interfaceName);
 cloned.methodName('Uno', 'Due');

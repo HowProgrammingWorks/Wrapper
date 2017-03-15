@@ -1,7 +1,8 @@
 'use strict';
 
 function cloneInterface(anInterface) {
-  let key, fn, clone = {};
+  const clone = {};
+  let key, fn;
   for (key in anInterface) {
     fn = anInterface[key];
     clone[key] = wrapFunction(fn);
@@ -15,13 +16,15 @@ function wrapFunction(fn) {
     console.log('Called wrapper for: ' + fn.name);
     console.dir({ args });
     if (args.length > 0) {
-      let callback = args[args.length - 1];
+      const callback = args[args.length - 1];
       if (typeof(callback) === 'function') {
         args[args.length - 1] = (...args) => {
           console.log('Callback: ' + fn.name);
           callback(...args);
         };
-      } else callback = null;
+      } else {
+        callback = null;
+      }
     }
     console.log('Call: ' + fn.name);
     console.dir(args);
@@ -30,14 +33,14 @@ function wrapFunction(fn) {
   };
 }
 
-let interfaceName = {
-  methodName: function(par1, par2, callback) {
+const interfaceName = {
+  methodName(par1, par2, callback) {
     console.dir({ method: { par1, par2 } });
     callback(null, { field: 'value' });
   }
 };
 
-let cloned = cloneInterface(interfaceName);
+const cloned = cloneInterface(interfaceName);
 cloned.methodName('Uno', 'Due', () => {
   console.log('Fire');
 });
