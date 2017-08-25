@@ -15,14 +15,17 @@ function wrapFunction(fn) {
   return (...args) => {
     console.log('Called wrapper for: ' + fn.name);
     console.dir({ args });
-    fn(...args);
+    const result = fn(...args);
     console.log('Ended wrapper for: ' + fn.name);
+    console.dir({ result });
+    return result;
   };
 }
 
 const interfaceName = {
   methodName(par1, par2) {
     console.dir({ method: { par1, par2 } });
+    return [par1, par2];
   }
 };
 

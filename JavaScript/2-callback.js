@@ -28,8 +28,10 @@ function wrapFunction(fn) {
     }
     console.log('Call: ' + fn.name);
     console.dir(args);
-    fn(...args);
+    const result = fn(...args);
     console.log('Ended wrapper for: ' + fn.name);
+    console.dir({ result });
+    return result;
   };
 }
 
