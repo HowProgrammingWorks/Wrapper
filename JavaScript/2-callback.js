@@ -16,7 +16,7 @@ function wrapFunction(fn) {
     console.log('Called wrapper for: ' + fn.name);
     console.dir({ args });
     if (args.length > 0) {
-      const callback = args[args.length - 1];
+      let callback = args[args.length - 1];
       if (typeof(callback) === 'function') {
         args[args.length - 1] = (...args) => {
           console.log('Callback: ' + fn.name);
