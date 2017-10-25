@@ -12,10 +12,10 @@ const wrap = (fn) => {
   };
 };
 
-const (par1, par2) {
-    console.dir({ method: { par1, par2 } });
-    return [par1, par2];
-  }
+const func = (par1, par2) => {
+  console.dir({ method: { par1, par2 } });
+  return [par1, par2];
+};
 
-const cloned = cloneInterface(interfaceName);
-cloned.methodName('Uno', 'Due');
+const cloned = wrap(func);
+cloned('Uno', 'Due');
