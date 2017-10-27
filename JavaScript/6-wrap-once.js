@@ -4,12 +4,12 @@
 
 const wrapOnce = (fn) => {
   let finished = false;
-  const wrap = (...args) => {
+  const wrapper = (...args) => {
     if (finished) return;
     finished = true;
     fn(...args);
   };
-  return wrap;
+  return wrapper;
 };
 
 const fn = (par) => {

@@ -1,13 +1,13 @@
 'use strict';
 
 const cancelable = (fn) => {
-  const wrap = (...args) => {
+  const wrapper = (...args) => {
     if (fn) return fn(...args);
   };
-  wrap.cancel = () => {
+  wrapper.cancel = () => {
     fn = null;
   };
-  return wrap;
+  return wrapper;
 };
 
 const fn = (par) => {

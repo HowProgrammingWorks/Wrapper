@@ -4,12 +4,12 @@
 
 const wrapCount = (count, fn) => {
   let counter = 0;
-  const wrap = (...args) => {
+  const wrapper = (...args) => {
     if (counter === count) return;
     counter++;
     fn(...args);
   };
-  return wrap;
+  return wrapper;
 };
 
 const fn = (par) => {

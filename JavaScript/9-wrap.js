@@ -4,29 +4,29 @@ const wrap = (fn) => {
   let limit = 0;
   let counter = 0;
 
-  const wrap = (...args) => {
-    if (limit && counter++ === limit) wrap.cancel();
+  const wrapper = (...args) => {
+    if (limit && counter++ === limit) wrapper.cancel();
     if (fn) return fn(...args);
   };
 
-  wrap.cancel = () => {
+  wrapper.cancel = () => {
     fn = null;
-    return wrap;
+    return wrapper;
   };
 
-  wrap.timeout = (msec) => {
+  wrapper.timeout = (msec) => {
     setTimeout(() => {
-      wrap.cancel();
+      wrapper.cancel();
     }, msec);
-    return wrap;
+    return wrapper;
   };
 
-  wrap.limit = (count) => {
+  wrapper.limit = (count) => {
     limit = count;
-    return wrap;
+    return wrapper;
   };
 
-  return wrap;
+  return wrapper;
 };
 
 // Usage:
