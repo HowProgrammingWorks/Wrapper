@@ -2,21 +2,19 @@
 
 // Wrapper will prevent calls > n
 
-const wrapCount = (count, fn) => {
+const limit = (count, fn) => {
   let counter = 0;
-  const wrapper = (...args) => {
-    if (counter === count) return;
-    counter++;
+  return (...args) => {
+    if (counter++ === count) return;
     fn(...args);
   };
-  return wrapper;
 };
 
 const fn = (par) => {
   console.log('Function called, par: ' + par);
 };
 
-const fn2 = wrapCount(2, fn);
+const fn2 = limit(2, fn);
 
 fn2('first');
 fn2('second');

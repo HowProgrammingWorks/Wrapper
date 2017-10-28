@@ -2,11 +2,11 @@
 
 // Wrapper will prevent call after timeout
 
-function wrapTimeout(timeout, fn) {
+function timeout(msec, fn) {
   let timer = setTimeout(() => {
     if (timer) console.log('Function timedout');
     timer = null;
-  }, timeout);
+  }, msec);
   return (...args) => {
     if (timer) {
       timer = null;
@@ -20,8 +20,8 @@ const fn = (par, callback) => {
   callback(null, par);
 };
 
-const fn100 = wrapTimeout(100, fn);
-const fn200 = wrapTimeout(200, fn);
+const fn100 = timeout(100, fn);
+const fn200 = timeout(200, fn);
 
 setTimeout(() => {
   fn100('first', (err, data) => {
