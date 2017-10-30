@@ -12,6 +12,8 @@ const once = (fn) => {
   };
 };
 
+// Usage:
+
 const fn = (par) => {
   console.log('Function called, par: ' + par);
 };

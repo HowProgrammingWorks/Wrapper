@@ -44,4 +44,3 @@ setTimeout(() => {
   f.cancel();
   f('4th');
 }, 150);
-

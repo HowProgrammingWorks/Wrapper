@@ -12,6 +12,8 @@ const limit = (count, fn) => {
   };
 };
 
+// Usage:
+
 const fn = (par) => {
   console.log('Function called, par: ' + par);
 };

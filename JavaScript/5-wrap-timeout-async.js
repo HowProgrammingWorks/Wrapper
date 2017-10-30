@@ -16,6 +16,8 @@ function timeout(msec, fn) {
   };
 }
 
+// Usage:
+
 const fn = (par, callback) => {
   console.log('Function called, par: ' + par);
   callback(null, par);

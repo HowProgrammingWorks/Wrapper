@@ -12,6 +12,8 @@ const wrap = (fn) => {
   };
 };
 
+// Usage:
+
 const func = (par1, par2) => {
   console.dir({ method: { par1, par2 } });
   return [par1, par2];

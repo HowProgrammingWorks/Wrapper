@@ -10,6 +10,8 @@ const cancelable = (fn) => {
   return wrapper;
 };
 
+// Usage:
+
 const fn = (par) => {
   console.log('Function called, par: ' + par);
 };

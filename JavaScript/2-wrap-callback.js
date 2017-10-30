@@ -35,6 +35,8 @@ function wrapFunction(fn) {
   };
 }
 
+// Usage:
+
 const interfaceName = {
   methodName(par1, par2, callback) {
     console.dir({ method: { par1, par2 } });

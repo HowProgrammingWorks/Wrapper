@@ -22,6 +22,8 @@ function wrapFunction(fn) {
   };
 }
 
+// Usage:
+
 const interfaceName = {
   methodName(par1, par2) {
     console.dir({ method: { par1, par2 } });
