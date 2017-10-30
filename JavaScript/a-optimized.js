@@ -8,13 +8,15 @@ const wrap = (func) => {
 
   const wrapper = (...args) => {
     if (!fn) return;
-    if (limit && counter++ === limit) {
+    if (limit && counter === limit) {
       limit = 0;
       counter = 0;
       this.cancel();
       return;
     }
-    return fn(...args);
+    const res = fn(...args);
+    counter++
+    return res;
   };
 
   const methods = {

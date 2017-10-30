@@ -6,6 +6,7 @@ const cancelable = (fn) => {
   };
   wrapper.cancel = () => {
     fn = null;
+    return wrapper;
   };
   return wrapper;
 };

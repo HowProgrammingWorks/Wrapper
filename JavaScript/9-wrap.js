@@ -5,8 +5,12 @@ const wrap = (fn) => {
   let counter = 0;
 
   const wrapper = (...args) => {
-    if (limit && counter++ === limit) wrapper.cancel();
-    if (fn) return fn(...args);
+    if (limit && counter === limit) wrapper.cancel();
+    if (fn) {
+      const res = fn(...args);
+      counter++;
+      return res;
+    }
   };
 
   wrapper.cancel = () => {
