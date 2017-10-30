@@ -6,8 +6,9 @@ const once = (fn) => {
   let finished = false;
   return (...args) => {
     if (finished) return;
+    const res = fn(...args);
     finished = true;
-    fn(...args);
+    return res;
   };
 };
 

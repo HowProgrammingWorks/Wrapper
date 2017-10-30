@@ -5,8 +5,10 @@
 const limit = (count, fn) => {
   let counter = 0;
   return (...args) => {
-    if (counter++ === count) return;
-    fn(...args);
+    if (counter === count) return;
+    const res = fn(...args);
+    counter++;
+    return res;
   };
 };
 
