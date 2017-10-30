@@ -9,11 +9,14 @@ function timeout(msec, fn) {
   }, msec);
   return (...args) => {
     if (timer) {
+      clearTimeout(timer);
       timer = null;
-      fn(...args);
+      return fn(...args);
     }
   };
 }
+
+// Usage:
 
 const fn = (par) => {
   console.log('Function called, par: ' + par);

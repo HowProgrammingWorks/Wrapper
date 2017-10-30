@@ -9,8 +9,9 @@ function timeout(msec, fn) {
   }, msec);
   return (...args) => {
     if (timer) {
+      clearTimeout(timer);
       timer = null;
-      fn(...args);
+      return fn(...args);
     }
   };
 }
@@ -25,9 +26,9 @@ const fn200 = timeout(200, fn);
 
 setTimeout(() => {
   fn100('first', (err, data) => {
-    console.log('Callback, data: ' + data);
+    console.log('Callback first', data);
   });
   fn200('second', (err, data) => {
-    console.log('Callback, data: ' + data);
+    console.log('Callback second', data);
   });
 }, 150);
