@@ -2,7 +2,7 @@
 
 // Wrapper will prevent call after timeout
 
-function timeout(msec, fn) {
+const timeout = (msec, fn) => {
   let timer = setTimeout(() => {
     if (timer) console.log('Function timedout');
     timer = null;
@@ -14,7 +14,7 @@ function timeout(msec, fn) {
       return fn(...args);
     }
   };
-}
+};
 
 // Usage
 

@@ -15,7 +15,7 @@ const wrap = (func) => {
       return;
     }
     const res = fn(...args);
-    counter++
+    counter++;
     return res;
   };
 

@@ -1,16 +1,6 @@
 'use strict';
 
-function cloneInterface(anInterface) {
-  const clone = {};
-  let key, fn;
-  for (key in anInterface) {
-    fn = anInterface[key];
-    clone[key] = wrapFunction(fn);
-  }
-  return clone;
-}
-
-function wrapFunction(fn) {
+const wrapFunction = fn => {
   console.log('Wrap function: ' + fn.name);
   return (...args) => {
     console.log('Called wrapper for: ' + fn.name);
@@ -20,7 +10,17 @@ function wrapFunction(fn) {
     console.dir({ result });
     return result;
   };
-}
+};
+
+const cloneInterface = anInterface => {
+  const clone = {};
+  let key, fn;
+  for (key in anInterface) {
+    fn = anInterface[key];
+    clone[key] = wrapFunction(fn);
+  }
+  return clone;
+};
 
 // Usage
 
