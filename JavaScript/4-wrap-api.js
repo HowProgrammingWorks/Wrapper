@@ -22,7 +22,7 @@ function wrapFunction(fn) {
   };
 }
 
-// Usage:
+// Usage
 
 const interfaceName = {
   methodName(par1, par2) {

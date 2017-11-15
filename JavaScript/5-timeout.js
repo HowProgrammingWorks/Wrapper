@@ -16,21 +16,16 @@ function timeout(msec, fn) {
   };
 }
 
-// Usage:
+// Usage
 
-const fn = (par, callback) => {
+const fn = (par) => {
   console.log('Function called, par: ' + par);
-  callback(null, par);
 };
 
 const fn100 = timeout(100, fn);
 const fn200 = timeout(200, fn);
 
 setTimeout(() => {
-  fn100('first', (err, data) => {
-    console.log('Callback first', data);
-  });
-  fn200('second', (err, data) => {
-    console.log('Callback second', data);
-  });
+  fn100('first');
+  fn200('second');
 }, 150);

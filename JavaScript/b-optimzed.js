@@ -49,7 +49,7 @@ const wrap = (func) => {
   return Object.assign(wrapper, methods);
 };
 
-// Usage:
+// Usage
 
 const fn = (par) => {
   console.log('Function called, par: ' + par);

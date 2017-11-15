@@ -12,7 +12,7 @@ const wrap = (fn) => {
   };
 };
 
-// Usage:
+// Usage
 
 const func = (par1, par2) => {
   console.dir({ method: { par1, par2 } });

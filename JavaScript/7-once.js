@@ -2,24 +2,23 @@
 
 // Wrapper will prevent calls > n
 
-const limit = (count, fn) => {
-  let counter = 0;
+const once = (fn) => {
+  let finished = false;
   return (...args) => {
-    if (counter === count) return;
+    if (finished) return;
     const res = fn(...args);
-    counter++;
+    finished = true;
     return res;
   };
 };
 
-// Usage:
+// Usage
 
 const fn = (par) => {
   console.log('Function called, par: ' + par);
 };
 
-const fn2 = limit(2, fn);
+const f = once(fn);
 
-fn2('first');
-fn2('second');
-fn2('third');
+f('first');
+f('second');

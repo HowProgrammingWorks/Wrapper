@@ -33,7 +33,7 @@ const wrap = (fn) => {
   return wrapper;
 };
 
-// Usage:
+// Usage
 
 const fn = (par) => {
   console.log('Function called, par: ' + par);
