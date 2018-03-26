@@ -19,5 +19,5 @@ const func = (par1, par2) => {
   return [par1, par2];
 };
 
-const cloned = wrap(func);
-cloned('Uno', 'Due');
+const wrapped = wrap(func);
+wrapped('Uno', 'Due');

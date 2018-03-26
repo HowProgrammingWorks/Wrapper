@@ -21,5 +21,11 @@ const after = (...args) => {
   return args;
 };
 
-const cloned = wrap(before, after, func);
-cloned('Uno', 'Due');
+const wrapped = wrap(before, after, func);
+wrapped('Uno', 'Due');
+
+console.dir({
+  func: func.length,
+  wrapped: wrapped.length
+});
+

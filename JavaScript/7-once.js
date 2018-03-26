@@ -2,14 +2,11 @@
 
 // Wrapper will prevent calls > n
 
-const once = (fn) => {
-  let finished = false;
-  return (...args) => {
-    if (finished) return;
-    const res = fn(...args);
-    finished = true;
-    return res;
-  };
+const once = fn => (...args) => {
+  if (!fn) return;
+  const res = fn(...args);
+  fn = null;
+  return res;
 };
 
 // Usage
