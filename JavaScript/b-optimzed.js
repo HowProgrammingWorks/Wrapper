@@ -7,11 +7,12 @@ const wrap = (func) => {
   let fn = func;
 
   const wrapper = (...args) => {
+    //console.dir({ limit, counter, fn, args });
     if (!fn) return;
     if (limit && counter === limit) {
       limit = 0;
       counter = 0;
-      this.cancel();
+      wrapper.cancel();
       return;
     }
     const res = fn(...args);
@@ -25,13 +26,7 @@ const wrap = (func) => {
       return this;
     },
     resume() {
-      if (!fn) {
-        fn = func;
-        if (limit) {
-          limit = 0;
-          counter = 0;
-        }
-      }
+      if (!fn) fn = func;
       return this;
     },
     timeout(msec) {
@@ -40,7 +35,7 @@ const wrap = (func) => {
       return this;
     },
     limit(count) {
-      limit = count;
+      limit = count || 0;
       counter = 0;
       return this;
     }
@@ -68,7 +63,11 @@ setTimeout(() => {
   setTimeout(() => {
     f('5th');
     setTimeout(() => {
+      f.limit(1);
       f('6th');
+      f('7th');
+      f.resume();
+      f('8th');
     }, 150);
   }, 150);
 }, 150);
