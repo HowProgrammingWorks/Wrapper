@@ -1,6 +1,6 @@
 'use strict';
 
-const wrap = (fn) => {
+const wrap = fn => {
   console.log('Wrap function: ' + fn.name);
   return (...args) => {
     console.log('Called wrapper for: ' + fn.name);

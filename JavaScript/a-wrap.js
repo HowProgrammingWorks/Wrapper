@@ -1,6 +1,6 @@
 'use strict';
 
-const wrap = (fn) => {
+const wrap = fn => {
   let limit = 0;
   let counter = 0;
 
@@ -18,14 +18,14 @@ const wrap = (fn) => {
     return wrapper;
   };
 
-  wrapper.timeout = (msec) => {
+  wrapper.timeout = msec => {
     setTimeout(() => {
       wrapper.cancel();
     }, msec);
     return wrapper;
   };
 
-  wrapper.limit = (count) => {
+  wrapper.limit = count => {
     limit = count;
     return wrapper;
   };
@@ -35,7 +35,7 @@ const wrap = (fn) => {
 
 // Usage
 
-const fn = (par) => {
+const fn = par => {
   console.log('Function called, par: ' + par);
 };
 

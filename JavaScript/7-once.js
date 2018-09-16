@@ -11,7 +11,7 @@ const once = fn => (...args) => {
 
 // Usage
 
-const fn = (par) => {
+const fn = par => {
   console.log('Function called, par: ' + par);
 };
 

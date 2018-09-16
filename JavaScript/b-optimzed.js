@@ -1,6 +1,6 @@
 'use strict';
 
-const wrap = (func) => {
+const wrap = func => {
   let limit = 0;
   let counter = 0;
   let timer = null;
@@ -46,7 +46,7 @@ const wrap = (func) => {
 
 // Usage
 
-const fn = (par) => {
+const fn = par => {
   console.log('Function called, par: ' + par);
 };
 
