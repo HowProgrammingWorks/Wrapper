@@ -47,7 +47,7 @@ const wrap = func => {
 // Usage
 
 const fn = par => {
-  console.log('Function called, par: ' + par);
+  console.log('Function called, par:', par);
 };
 
 const f = wrap(fn).timeout(200).limit(3);

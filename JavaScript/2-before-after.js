@@ -1,8 +1,6 @@
 'use strict';
 
-const wrap = (before, after, fn) => (
-  (...args) => after(fn(...before(...args)))
-);
+const wrap = (before, after, fn) => (...args) => after(fn(...before(...args)));
 
 // Usage
 
@@ -28,4 +26,3 @@ console.dir({
   func: func.length,
   wrapped: wrapped.length
 });
-

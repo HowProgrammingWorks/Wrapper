@@ -28,7 +28,7 @@ const throttle = (timeout, fn, ...args) => {
 // Usage
 
 const fn = (...args) => {
-  console.log('Function called, args: ' + args);
+  console.log('Function called, args:', args);
 };
 
 const ft = throttle(200, fn, 'value1');

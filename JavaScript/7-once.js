@@ -12,7 +12,7 @@ const once = fn => (...args) => {
 // Usage
 
 const fn = par => {
-  console.log('Function called, par: ' + par);
+  console.log('Function called, par:', par);
 };
 
 const f = once(fn);

@@ -11,7 +11,7 @@ const cancelable = fn => {
 // Usage
 
 const fn = par => {
-  console.log('Function called, par: ' + par);
+  console.log('Function called, par:', par);
 };
 
 const f = cancelable(fn);

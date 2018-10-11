@@ -1,12 +1,12 @@
 'use strict';
 
 const wrapFunction = fn => {
-  console.log('Wrap function: ' + fn.name);
+  console.log('Wrap function:', fn.name);
   return (...args) => {
-    console.log('Called wrapper for: ' + fn.name);
+    console.log('Called wrapper for:', fn.name);
     console.dir({ args });
     const result = fn(...args);
-    console.log('Ended wrapper for: ' + fn.name);
+    console.log('Ended wrapper for:', fn.name);
     console.dir({ result });
     return result;
   };

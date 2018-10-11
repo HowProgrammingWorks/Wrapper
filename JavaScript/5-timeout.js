@@ -19,7 +19,7 @@ const timeout = (msec, fn) => {
 // Usage
 
 const fn = par => {
-  console.log('Function called, par: ' + par);
+  console.log('Function called, par:', par);
 };
 
 const fn100 = timeout(100, fn);
