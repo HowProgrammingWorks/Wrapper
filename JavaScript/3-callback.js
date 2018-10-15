@@ -1,5 +1,18 @@
 'use strict';
 
+// const wrap = (before, after, fn) =>
+//  (...args) => after(fn(...before(...args)));
+
+// const wrapAsync = (before, after, beforeCb, afterCb, fn) =>
+//   (...args) => {
+//     const callback = arr[arr.length -1];
+//     if (typeof callback === 'function') {
+//       args[args.length - 1] = (...pars) =>
+//         afterCb(callback(...beforeCb(...pars)));
+//     }
+//     return after(fn(...before(...args)));
+//   };
+
 const wrapFunction = fn => {
   console.log('Wrap function:', fn.name);
   return (...args) => {
