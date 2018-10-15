@@ -10,7 +10,7 @@ const wrapFunction = fn => {
       if (typeof callback === 'function') {
         args[args.length - 1] = (...args) => {
           console.log('Callback:', fn.name);
-          callback(...args);
+          return callback(...args);
         };
       }
     }
