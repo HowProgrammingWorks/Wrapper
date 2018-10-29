@@ -5,7 +5,7 @@
 
 // const wrapAsync = (before, after, beforeCb, afterCb, fn) =>
 //   (...args) => {
-//     const callback = arr[arr.length -1];
+//     const callback = args[args.length -1];
 //     if (typeof callback === 'function') {
 //       args[args.length - 1] = (...pars) =>
 //         afterCb(callback(...beforeCb(...pars)));
