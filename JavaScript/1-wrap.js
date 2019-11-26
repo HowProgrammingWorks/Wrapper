@@ -17,9 +17,10 @@ const wrap = f => {
 // Usage
 
 const func = (par1, par2) => {
-  console.dir({ method: { par1, par2 } });
+  console.dir({ par1, par2 });
   return [par1, par2];
 };
 
+func('Uno', 'Due');
 const wrapped = wrap(func);
-wrapped('Uno', 'Due');
+wrapped('Tre', 'Quatro');

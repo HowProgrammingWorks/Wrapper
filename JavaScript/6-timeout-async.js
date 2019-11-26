@@ -28,9 +28,9 @@ const fn200 = timeout(200, fn);
 
 setTimeout(() => {
   fn100('first', (err, data) => {
-    console.log('Callback first', data);
+    console.log('Callback', data);
   });
   fn200('second', (err, data) => {
-    console.log('Callback second', data);
+    console.log('Callback', data);
   });
 }, 150);

@@ -22,7 +22,9 @@ const wrapFunction = f => {
       if (typeof callback === 'function') {
         args[args.length - 1] = (...args) => {
           console.log('Callback:', f.name);
-          return callback(...args);
+          const cbRes = callback(...args);
+          console.log('Callback results:', cbRes);
+          return cbRes;
         };
       }
     }
@@ -37,7 +39,8 @@ const wrapFunction = f => {
 
 const cloneInterface = anInterface => {
   const clone = {};
-  for (const key in anInterface) {
+  const keys = Object.keys(anInterface);
+  for (const key of keys) {
     const fn = anInterface[key];
     clone[key] = wrapFunction(fn);
   }
@@ -48,12 +51,14 @@ const cloneInterface = anInterface => {
 
 const interfaceName = {
   methodName(par1, par2, callback) {
-    console.dir({ method: { par1, par2 } });
+    console.dir({ par1, par2 });
     callback(null, { field: 'value' });
+    return par1;
   }
 };
 
 const cloned = cloneInterface(interfaceName);
-cloned.methodName('Uno', 'Due', () => {
-  console.log('Fire');
+cloned.methodName('Uno', 'Due', (err, data) => {
+  console.log({ err, data });
+  return true;
 });
