@@ -1,36 +1,35 @@
 'use strict';
 
-// const wrap = (before, after, fn) =>
-//  (...args) => after(fn(...before(...args)));
+// const wrap = (before, after, f) => (...args) => after(f(...before(...args)));
 
-// const wrapAsync = (before, after, beforeCb, afterCb, fn) =>
+// const wrapAsync = (before, after, beforeCb, afterCb, f) =>
 //   (...args) => {
-//     const callback = arr[arr.length -1];
+//     const callback = arrs[arrs.length -1];
 //     if (typeof callback === 'function') {
 //       args[args.length - 1] = (...pars) =>
 //         afterCb(callback(...beforeCb(...pars)));
 //     }
-//     return after(fn(...before(...args)));
+//     return after(f(...before(...args)));
 //   };
 
-const wrapFunction = fn => {
-  console.log('Wrap function:', fn.name);
+const wrapFunction = f => {
+  console.log('Wrap function:', f.name);
   return (...args) => {
-    console.log('Called wrapper for:', fn.name);
+    console.log('Called wrapper for:', f.name);
     console.dir({ args });
     if (args.length > 0) {
       const callback = args[args.length - 1];
       if (typeof callback === 'function') {
         args[args.length - 1] = (...args) => {
-          console.log('Callback:', fn.name);
+          console.log('Callback:', f.name);
           return callback(...args);
         };
       }
     }
-    console.log('Call:', fn.name);
+    console.log('Call:', f.name);
     console.dir(args);
-    const result = fn(...args);
-    console.log('Ended wrapper for:', fn.name);
+    const result = f(...args);
+    console.log('Ended wrapper for:', f.name);
     console.dir({ result });
     return result;
   };

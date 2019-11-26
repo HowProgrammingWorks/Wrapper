@@ -2,12 +2,12 @@
 
 // Wrapper will prevent calls > n
 
-const limit = (count, fn) => {
+const limit = (count, f) => {
   let counter = 0;
   return (...args) => {
     if (counter === count) return;
     counter++;
-    return fn(...args);
+    return f(...args);
   };
 };
 

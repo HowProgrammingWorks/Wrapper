@@ -1,10 +1,10 @@
 'use strict';
 
-const wrap = func => {
+const wrap = f => {
   let limit = 0;
   let counter = 0;
   let timer = null;
-  let fn = func;
+  let fn = f;
 
   const wrapper = (...args) => {
     //console.dir({ limit, counter, fn, args });
@@ -26,7 +26,7 @@ const wrap = func => {
       return this;
     },
     resume() {
-      if (!fn) fn = func;
+      if (!fn) fn = f;
       return this;
     },
     timeout(msec) {
@@ -50,24 +50,24 @@ const fn = par => {
   console.log('Function called, par:', par);
 };
 
-const f = wrap(fn).timeout(200).limit(3);
-f('1st');
+const fn2 = wrap(fn).timeout(200).limit(3);
+fn2('1st');
 
 setTimeout(() => {
-  f('2nd');
-  f.cancel();
-  f('3rd');
-  f.resume();
-  f('4th');
-  f.timeout(200);
+  fn2('2nd');
+  fn2.cancel();
+  fn2('3rd');
+  fn2.resume();
+  fn2('4th');
+  fn2.timeout(200);
   setTimeout(() => {
-    f('5th');
+    fn2('5th');
     setTimeout(() => {
-      f.limit(1);
-      f('6th');
-      f('7th');
-      f.resume();
-      f('8th');
+      fn2.limit(1);
+      fn2('6th');
+      fn2('7th');
+      fn2.resume();
+      fn2('8th');
     }, 150);
   }, 150);
 }, 150);

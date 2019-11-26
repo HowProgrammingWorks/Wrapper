@@ -1,12 +1,12 @@
 'use strict';
 
-const wrapFunction = fn => {
-  console.log('Wrap function:', fn.name);
+const wrapFunction = f => {
+  console.log('Wrap function:', f.name);
   return (...args) => {
-    console.log('Called wrapper for:', fn.name);
+    console.log('Called wrapper for:', f.name);
     console.dir({ args });
-    const result = fn(...args);
-    console.log('Ended wrapper for:', fn.name);
+    const result = f(...args);
+    console.log('Ended wrapper for:', f.name);
     console.dir({ result });
     return result;
   };
@@ -24,11 +24,20 @@ const cloneInterface = anInterface => {
 // Usage
 
 const interfaceName = {
-  methodName(par1, par2) {
+  methodSync(par1, par2) {
     console.dir({ method: { par1, par2 } });
     return [par1, par2];
+  },
+  methodAsync(par1, par2, callback) {
+    console.dir({ method: { par1, par2 } });
+    callback(null, { field: 'value' });
   }
 };
 
 const cloned = cloneInterface(interfaceName);
-cloned.methodName('Uno', 'Due');
+cloned.methodSync('Uno', 'Due');
+
+cloned.methodAsync('Tre', 'Quattro', (err, res) => {
+  if (err) throw err;
+  console.dir({ res });
+});
