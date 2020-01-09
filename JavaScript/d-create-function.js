@@ -5,10 +5,10 @@ const wrap = (before, after, fn) => {
   for (let i = 1; i <= fn.length; i++) {
     args.push(`a${i}`);
   }
-  global.fn = fn;
-  global.before = before;
-  global.after = after;
   const createFn = new Function(...args, `
+    const fn = ${fn};
+    const before = ${before};
+    const after = ${after};
     return after(fn(...before(${args.join(', ')})));
   `);
   return createFn;
