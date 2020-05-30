@@ -4,15 +4,14 @@
 
 const timeout = (msec, f) => {
   let timer = setTimeout(() => {
-    if (timer) console.log('Function timedout');
+    if (timer) console.log('Function timed out');
     timer = null;
   }, msec);
   return (...args) => {
-    if (timer) {
-      clearTimeout(timer);
-      timer = null;
-      return f(...args);
-    }
+    if (!timer) return;
+    clearTimeout(timer);
+    timer = null;
+    return f(...args);
   };
 };
 
