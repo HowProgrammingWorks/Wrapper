@@ -14,7 +14,7 @@ const before = (...args) => {
   return args;
 };
 
-const after = res => {
+const after = (res) => {
   console.log('after');
   return res;
 };

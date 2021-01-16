@@ -1,6 +1,6 @@
 'use strict';
 
-const cancelable = f => {
+const cancelable = (f) => {
   const wrapper = (...args) => {
     if (f) return f(...args);
   };
@@ -10,7 +10,7 @@ const cancelable = f => {
 
 // Usage
 
-const fn = par => {
+const fn = (par) => {
   console.log('Function called, par:', par);
 };
 

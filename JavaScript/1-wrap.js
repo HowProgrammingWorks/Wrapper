@@ -2,7 +2,7 @@
 
 // const wrap = f => (...args) => f(...args);
 
-const wrap = f => {
+const wrap = (f) => {
   console.log('Wrap function:', f.name);
   return (...args) => {
     console.log('Called wrapper for:', f.name);

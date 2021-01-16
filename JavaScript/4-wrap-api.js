@@ -1,6 +1,6 @@
 'use strict';
 
-const wrapFunction = f => {
+const wrapFunction = (f) => {
   console.log('Wrap function:', f.name);
   return (...args) => {
     console.log('Called wrapper for:', f.name);
@@ -12,7 +12,7 @@ const wrapFunction = f => {
   };
 };
 
-const cloneInterface = anInterface => {
+const cloneInterface = (anInterface) => {
   const clone = {};
   for (const key in anInterface) {
     const fn = anInterface[key];

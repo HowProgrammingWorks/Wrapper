@@ -12,7 +12,7 @@
 //     return after(f(...before(...args)));
 //   };
 
-const wrapFunction = f => {
+const wrapFunction = (f) => {
   console.log('Wrap function:', f.name);
   return (...args) => {
     console.log('Called wrapper for:', f.name);
@@ -37,7 +37,7 @@ const wrapFunction = f => {
   };
 };
 
-const cloneInterface = anInterface => {
+const cloneInterface = (anInterface) => {
   const clone = {};
   const keys = Object.keys(anInterface);
   for (const key of keys) {

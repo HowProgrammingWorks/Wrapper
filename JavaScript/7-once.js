@@ -2,7 +2,7 @@
 
 // Wrapper will prevent calls > n
 
-const once = f => (...args) => {
+const once = (f) => (...args) => {
   if (!f) return;
   const res = f(...args);
   f = null;
@@ -11,7 +11,7 @@ const once = f => (...args) => {
 
 // Usage
 
-const fn = par => {
+const fn = (par) => {
   console.log('Function called, par:', par);
 };
 

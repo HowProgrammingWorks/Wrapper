@@ -17,7 +17,7 @@ const timeout = (msec, f) => {
 
 // Usage
 
-const fn = par => {
+const fn = (par) => {
   console.log('Function called, par:', par);
 };
 
