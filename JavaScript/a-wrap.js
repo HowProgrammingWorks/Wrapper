@@ -6,11 +6,10 @@ const wrap = (f) => {
 
   const wrapper = (...args) => {
     if (limit && counter === limit) wrapper.cancel();
-    if (f) {
-      const res = f(...args);
-      counter++;
-      return res;
-    }
+    if (!f) return null;
+    const res = f(...args);
+    counter++;
+    return res;
   };
 
   wrapper.cancel = () => {

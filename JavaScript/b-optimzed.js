@@ -8,12 +8,12 @@ const wrap = (f) => {
 
   const wrapper = (...args) => {
     //console.dir({ limit, counter, fn, args });
-    if (!fn) return;
+    if (!fn) return null;
     if (limit && counter === limit) {
       limit = 0;
       counter = 0;
       wrapper.cancel();
-      return;
+      return null;
     }
     const res = fn(...args);
     counter++;

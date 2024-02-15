@@ -17,9 +17,9 @@ const throttle = (timeout, f, ...args) => {
       timer = setTimeout(throttled, timeout, ...par);
       wait = false;
       return f(...args.concat(par));
-    } else {
-      wait = true;
     }
+    wait = true;
+    return null;
   };
 
   return wrapped;
