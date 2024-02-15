@@ -2,11 +2,17 @@
 
 // Wrapper will prevent calls > n
 
-const once = (f) => (...args) => {
-  if (!f) return;
-  const res = f(...args);
-  f = null;
-  return res;
+const emptiness = () => {};
+
+const once = (fn) => {
+  if (!fn) return emptiness;
+  let finished = false;
+  const wrapped = (...args) => {
+    if (finished) return;
+    finished = true;
+    fn(...args);
+  };
+  return wrapped;
 };
 
 // Usage

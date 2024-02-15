@@ -2,13 +2,17 @@
 
 // Wrapper will prevent calls > n
 
-const limit = (count, f) => {
+const emptiness = () => {};
+
+const limit = (count, fn) => {
   let counter = 0;
-  return (...args) => {
-    if (counter === count) return;
+  if (!fn) return emptiness;
+  const wrapped = (...args) => {
+    if (counter === count) return null;
     counter++;
-    return f(...args);
+    return fn(...args);
   };
+  return wrapped;
 };
 
 // Usage
