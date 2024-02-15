@@ -1,10 +1,8 @@
 'use strict';
 
-const cancelable = (f) => {
-  const wrapper = (...args) => {
-    if (f) return f(...args);
-  };
-  wrapper.cancel = () => f = null;
+const cancelable = (fn) => {
+  const wrapper = (...args) => (fn ? fn(...args) : null);
+  wrapper.cancel = () => fn = null;
   return wrapper;
 };
 
