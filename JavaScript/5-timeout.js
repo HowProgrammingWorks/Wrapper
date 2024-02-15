@@ -8,7 +8,7 @@ const timeout = (msec, f) => {
     timer = null;
   }, msec);
   return (...args) => {
-    if (!timer) return;
+    if (!timer) return null;
     clearTimeout(timer);
     timer = null;
     return f(...args);
