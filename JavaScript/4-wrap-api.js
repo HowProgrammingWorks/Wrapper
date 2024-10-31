@@ -31,7 +31,7 @@ const interfaceName = {
   methodAsync(par1, par2, callback) {
     console.dir({ method: { par1, par2 } });
     callback(null, { field: 'value' });
-  }
+  },
 };
 
 const cloned = cloneInterface(interfaceName);

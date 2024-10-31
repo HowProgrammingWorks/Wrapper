@@ -1,6 +1,9 @@
 'use strict';
 
-const wrap = (f, before, after) => (...args) => after(f(...before(...args)));
+const wrap =
+  (f, before, after) =>
+  (...args) =>
+    after(f(...before(...args)));
 
 // Usage
 

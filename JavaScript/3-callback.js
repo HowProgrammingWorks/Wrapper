@@ -54,7 +54,7 @@ const interfaceName = {
     console.dir({ par1, par2 });
     callback(null, { field: 'value' });
     return par1;
-  }
+  },
 };
 
 const cloned = cloneInterface(interfaceName);

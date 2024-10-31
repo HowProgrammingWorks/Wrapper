@@ -26,10 +26,10 @@ const fn100 = timeout(fn, 100);
 const fn200 = timeout(fn, 200);
 
 setTimeout(() => {
-  fn100('first', (err, data) => {
-    console.log('Callback', data);
+  fn100('first', (error, data) => {
+    console.log({ callback: { error, data } });
   });
-  fn200('second', (err, data) => {
-    console.log('Callback', data);
+  fn200('second', (error, data) => {
+    console.log({ callback: { error, data } });
   });
 }, 150);

@@ -38,7 +38,7 @@ const wrap = (f) => {
       limit = count || 0;
       counter = 0;
       return this;
-    }
+    },
   };
 
   return Object.assign(wrapper, methods);
