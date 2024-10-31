@@ -1,6 +1,6 @@
 'use strict';
 
-// const wrap = f => (...args) => f(...args);
+// const wrap = (f) => (...args) => f(...args);
 
 const wrap = (f) => {
   console.log('Wrap function:', f.name);

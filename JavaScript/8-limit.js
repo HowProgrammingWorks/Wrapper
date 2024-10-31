@@ -4,7 +4,7 @@
 
 const emptiness = () => {};
 
-const limit = (count, fn) => {
+const limit = (fn, count) => {
   let counter = 0;
   if (!fn) return emptiness;
   const wrapped = (...args) => {
@@ -21,7 +21,7 @@ const fn = (par) => {
   console.log('Function called, par:', par);
 };
 
-const fn2 = limit(2, fn);
+const fn2 = limit(fn, 2);
 
 fn2('first');
 fn2('second');

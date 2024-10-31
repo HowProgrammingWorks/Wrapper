@@ -1,6 +1,6 @@
 'use strict';
 
-const wrap = (before, after, f) => (...args) => after(f(...before(...args)));
+const wrap = (f, before, after) => (...args) => after(f(...before(...args)));
 
 // Usage
 
@@ -19,7 +19,7 @@ const after = (res) => {
   return res;
 };
 
-const wrapped = wrap(before, after, func);
+const wrapped = wrap(func, before, after);
 const res = wrapped('Uno', 'Due');
 console.dir({
   res,
