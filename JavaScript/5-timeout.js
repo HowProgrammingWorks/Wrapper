@@ -8,10 +8,12 @@ const timeout = (f, msec) => {
     timer = null;
   }, msec);
   return (...args) => {
-    if (!timer) return null;
+    let result = undefined;
+    if (!timer) return result;
     clearTimeout(timer);
     timer = null;
-    return f(...args);
+    result = f(...args);
+    return result;
   };
 };
 
