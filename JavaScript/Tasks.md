@@ -1,4 +1,4 @@
-# Factory tasks
+# Wrapper tasks
 
 1. Rewtite wrapper function `timeout` from `5-timeout.js` into class syntax
 2. Rewrite `7-once.js` to throw exception instead `emptiness` call if `once` receives wrong argument
