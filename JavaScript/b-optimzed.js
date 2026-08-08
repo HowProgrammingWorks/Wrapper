@@ -35,7 +35,7 @@ const wrap = (f) => {
       return this;
     },
     limit(count) {
-      limit = count || 0;
+      limit = count ?? 0;
       counter = 0;
       return this;
     },
