@@ -2,23 +2,24 @@
 
 // Function throttling, executed once per interval
 
-const throttle = (timeout, f, ...args) => {
+const throttle = (delay, f, ...args) => {
   let timer;
-  let wait = false;
-  let wrapped = null;
+  let pendingArgs = null;
 
-  const throttled = (...par) => {
+  const throttled = () => {
     timer = undefined;
-    if (wait) wrapped(...par);
+    if (pendingArgs) {
+      wrapped(...pendingArgs);
+      pendingArgs = null;
+    }
   };
 
-  wrapped = (...par) => {
+  const wrapped = (...params) => {
     if (!timer) {
-      timer = setTimeout(throttled, timeout, ...par);
-      wait = false;
-      return f(...args.concat(par));
+      timer = setTimeout(throttled, delay);
+      return f(...args, ...params);
     }
-    wait = true;
+    pendingArgs = params;
     return null;
   };
 
@@ -31,11 +32,13 @@ const fn = (...args) => {
   console.log('Function called, args:', args);
 };
 
-const ft = throttle(200, fn, 'value1');
+const ft = throttle(200, fn, 'throttled');
 
+let calls = 0;
 const timer = setInterval(() => {
-  fn('value2');
-  ft('value3');
+  calls++;
+  fn(calls);
+  ft(calls);
 }, 50);
 
 setTimeout(() => {
